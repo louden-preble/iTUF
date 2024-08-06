@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Build output
+build/
+dist/
+
+# Electron specific
+electron-builder.yaml
+release/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Temporary files
+tmp/
+temp/

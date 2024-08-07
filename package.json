@@ -1,19 +1,21 @@
 {
-    "name": "ituf",
-    "version": "1.0.0",
-    "description": "iPhone to Usable Format converter using Electron",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
-    },
-    "author": "Your Name",
-    "license": "ISC",
-    "dependencies": {
-        "sharp": "^0.30.0",
-        "fluent-ffmpeg": "^2.1.2"
-    },
-    "devDependencies": {
-        "electron": "^24.0.0"
-    },
-    "keywords": []
+  "name": "ituf",
+  "version": "1.0.0",
+  "description": "iPhone to Usable Format converter using Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder" // Add this line
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.30.0",
+    "fluent-ffmpeg": "^2.1.2"
+  },
+  "devDependencies": {
+    "electron": "^24.0.0",
+    "electron-builder": "^24.0.0" // Add this line if not already installed
+  },
+  "keywords": []
 }

@@ -1,0 +1,52 @@
+name: Build and Release Electron App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Remove package-lock.json
+      run: rm -f package-lock.json
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Updated to Node.js 18
+
+    - name: Install Dependencies
+      run: yarn install --verbose
+
+    - name: Build App
+      run: yarn build --verbose
+
+    - name: Electron Builder
+      uses: paneron/action-electron-builder@v1.8.1
+      with:
+        skip_package_manager_install: false
+        package_manager: yarn
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        release: true
+        package_root: .
+        build_script_name: build
+        skip_build: false
+        max_attempts: 3  # Increased attempts
+
+    - name: Upload Artifacts
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifacts
+        path: |
+          dist/
+          *.log

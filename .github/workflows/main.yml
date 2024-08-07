@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: '14' # specify your desired node version here
 
+      - name: Verify Node.js installation
+        run: node --version
+
       - name: Install dependencies
         run: npm install
 
@@ -28,3 +31,4 @@ jobs:
           package_root: . # optional, default is .
           script_name: publish # optional, default is publish
           release: true # optional
+

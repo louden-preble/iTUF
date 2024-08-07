@@ -22,10 +22,9 @@ jobs:
         run: npm install
 
       - name: Electron Forge Action
-        uses: yinxulai/actions-electron-forge@0.0.5
+        uses: yinxulai/actions-electron-forge@456a6517c5241e4d693507b99a30dac8fe622102 # pinning to a specific commit
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_root: . # optional, default is .
           script_name: publish # optional, default is publish
           release: true # optional
-
